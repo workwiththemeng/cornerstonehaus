@@ -1,7 +1,16 @@
 {
-    "name": "cornerstonehaus",
-    "compatibility_date": "2026-05-30",
-    "assets": {
-        "directory": "."
-    }
+  // Cornerstone Haus - Cloudflare Worker config
+  "name": "cornerstonehaus",
+  "compatibility_date": "2025-01-01",
+
+  // The Worker script that runs first on every request.
+  // It handles the www -> non-www redirect, then falls through to assets.
+  "main": "worker.js",
+
+  // Static files (index.html and anything else in this folder).
+  // The "binding" name here (ASSETS) is what worker.js calls: env.ASSETS.fetch()
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
 }
